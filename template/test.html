@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>数组初始化</title>
+</head>
+<body>
+
+
+<script>
+    //【示例2】下面再为Array定义一个矩阵式二维数组定义函数。
+    //参数m表示行数，n表示列数，initial表示初始值
+    Array.matrix = function(m, n, initial) {
+        var a, i, j, mat = [];
+        for( i = 0; i < m; i += 1) {
+            a = [];
+            for( j = 0; j < n; j += 1) {
+                a[j] = initial;
+            }
+            mat[i] = a;
+        }
+        return mat;
+    };
+
+    var myMatrix = Array.matrix(5, 5, 4);
+    console.log(myMatrix[2][4]);	//
+</script>
+<script src="../test_code/ArrayDemo.js"></script>
+
+
+</body>
+</html>

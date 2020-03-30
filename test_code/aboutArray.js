@@ -150,3 +150,4 @@ var a9 = [1, 2, 3, 4, 5, 6];
 var b4 = a9.slice(2, 5);
 console.log(b4);
 console.log(a9);
+console.log(a9.reverse());
