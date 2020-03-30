@@ -1,0 +1,1 @@
+console.log("Hello World! This is my second contact with node_js! ");
