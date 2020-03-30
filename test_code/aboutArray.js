@@ -143,3 +143,10 @@ console.log(b3);
 console.log(a8);
 b3 = a8.splice(-2, -2, 2, 3);
 console.log(a8);
+console.log("=======================");
+console.log("slice 方法");
+// slice 放法
+var a9 = [1, 2, 3, 4, 5, 6];
+var b4 = a9.slice(2, 5);
+console.log(b4);
+console.log(a9);
