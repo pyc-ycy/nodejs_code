@@ -73,3 +73,18 @@ let b2 = a2.edit(f2);
 console.log(b2);
 console.log("===============");
 console.log("过滤器");
+Array.prototype._filter = Array.prototype.filter ||
+    (Array.prototype.filter = function () {
+        let b = arguments, a=[];
+        this.each(function () {
+            if(b[0].call(b[1], this)) a.push(this);
+        });
+        return a;
+    });
+Object.prototype["filter"] = Array.prototype._filter;
+let a3 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let f3 = function (x) {
+    if( x>4) return true;
+};
+let b3 = a3.filter(f3);
+console.log(b3);
