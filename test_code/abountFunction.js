@@ -41,8 +41,35 @@ console.log("===========================");
 function f1(x, y) {
     console.log("x=" + x + ",y=" + y);
 }
-new f1(3,4);
+
+new f1(3, 4);
+console.log("=============");
 // About argument of function
 // In javascript the number of argument may not equal to the number of formal parameter
 // and the default value of the extra parameter is undefined, but the extra arguments will be ignored。
 // example:
+(function (a, b) {
+    console.log(a);
+    console.log(b);
+})(1);
+(function (a, b) {
+    console.log(a);
+    console.log(b);
+})(1, 2, 3, 4);
+console.log("============");
+
+// We can get the number of arguments of a function by using the "length" attribute of "arguments" object.
+function checkArg(a) {
+    if (a.length !== a.callee.length) {
+        console.log("Mismatch of actual and formal parameters!");
+        return false;
+    }
+    return true;
+}
+
+function f2(a, b) {
+    if(checkArg(arguments))
+        return ((a * 1 ? a : 0) + (b * 1 ? b : 0)) / 2;
+}
+
+console.log(f2(6));

@@ -25,8 +25,19 @@
     var myMatrix = Array.matrix(5, 5, 4);
     console.log(myMatrix[2][4]);	//
 </script>
-<script src="../test_code/ArrayDemo.js"></script>
-
+<!--<script src="../test_code/ArrayDemo.js"></script>-->
+<script>
+    function checkArg(a) {
+        if(a.length !== a.callee.length){
+            throw new Error("Mismatch of actual and formal parameters！");
+        }
+    }
+    function f2(a, b) {
+        checkArg(arguments);
+        return ((a*1?a:0) + (b*1?b:0))/2;
+    }
+    console.log(f2(6));
+</script>
 
 </body>
 </html>
