@@ -139,3 +139,13 @@ console.log(avg(1, 2, 3, 4));
 console.log(avg(1, 2, "3", 4));
 // sample two
 console.log("Verify email address is legal or not");
+function isEmail() {
+    if(arguments.length>1){
+        console.log("function only need a arguments but incoming more!");
+        return null;
+    }
+    let regExp = /^\w+((-\w)|(\.\w+))*@[A-Za-z0-9]+(([.\-])[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+    return arguments[0].search(regExp) !== -1;
+}
+let email = "zhangsan@css8.cn";
+console.log(isEmail(email));
