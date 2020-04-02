@@ -100,3 +100,18 @@ function f5() {
 }
 f5(1, 2, 3);
 console.log("============");
+// "callee" is a attribute of "arguments" object，it refers to the function where the arguments object is currently located.
+// we can call a function itself in this function scope by the "callee" attribute
+function f6(x, y, z) {
+    let a = arguments.length;
+    let b = arguments.callee.length;
+    if(a !== b){
+        console.log("formal parameters not equal of arguments");
+        return null;
+    }
+    else {
+        return x+y+z;
+    }
+}
+console.log(f6(3, 4, 5));
+console.log("==============");
