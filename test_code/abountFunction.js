@@ -78,26 +78,31 @@ console.log("============");
 // Only can be used directly in a function scope
 // We can use the "arguments" to gain a argument of a function in this function scope.
 function f3() {
-    for(let i=0; i<arguments.length; i++){
+    for (let i = 0; i < arguments.length; i++) {
         console.log(arguments[i]);
     }
 }
+
 f3(2, 3, 6);
 console.log("============");
+
 function f4() {
-    for(let i=0;i<arguments.length;i++){
+    for (let i = 0; i < arguments.length; i++) {
         arguments[i] += i;
         console.log(arguments[i]);
     }
 }
+
 f4(3, 3, 6);
 console.log("===============");
+
 function f5() {
     arguments.length = 2;
-    for(let i=0; i<arguments.length; i++){
+    for (let i = 0; i < arguments.length; i++) {
         console.log(arguments[i]);
     }
 }
+
 f5(1, 2, 3);
 console.log("============");
 // "callee" is a attribute of "arguments" object，it refers to the function where the arguments object is currently located.
@@ -105,13 +110,32 @@ console.log("============");
 function f6(x, y, z) {
     let a = arguments.length;
     let b = arguments.callee.length;
-    if(a !== b){
+    if (a !== b) {
         console.log("formal parameters not equal of arguments");
         return null;
-    }
-    else {
-        return x+y+z;
+    } else {
+        return x + y + z;
     }
 }
+
 console.log(f6(3, 4, 5));
 console.log("==============");
+// Some useful examples about "arguments" object
+// Sample one:
+console.log("use arguments object to gain the average of num");
+function avg() {
+    let num = 0, l = 0;
+    for (let i = 0; i < arguments.length; i++) {
+        if (typeof arguments[i] !== "number")
+            continue;
+        num += arguments[i];
+        l++;
+    }
+    num /= l;
+    return num;
+}
+
+console.log(avg(1, 2, 3, 4));
+console.log(avg(1, 2, "3", 4));
+// sample two
+console.log("Verify email address is legal or not");
