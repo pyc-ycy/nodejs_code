@@ -83,3 +83,20 @@ function f3() {
     }
 }
 f3(2, 3, 6);
+console.log("============");
+function f4() {
+    for(let i=0;i<arguments.length;i++){
+        arguments[i] += i;
+        console.log(arguments[i]);
+    }
+}
+f4(3, 3, 6);
+console.log("===============");
+function f5() {
+    arguments.length = 2;
+    for(let i=0; i<arguments.length; i++){
+        console.log(arguments[i]);
+    }
+}
+f5(1, 2, 3);
+console.log("============");
