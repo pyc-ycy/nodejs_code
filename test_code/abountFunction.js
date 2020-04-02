@@ -59,17 +59,27 @@ console.log("=============");
 console.log("============");
 
 // We can get the number of arguments of a function by using the "length" attribute of "arguments" object.
-function checkArg(a) {
-    if (a.length !== a.callee.length) {
-        console.log("Mismatch of actual and formal parameters!");
-        return false;
+// function checkArg(a) {
+//     if (a.length !== a.callee.length) {
+//         console.log("Mismatch of actual and formal parameters!");
+//         return false;
+//     }
+//     return true;
+// }
+//
+// function f2(a, b) {
+//     if(checkArg(arguments))
+//         return ((a * 1 ? a : 0) + (b * 1 ? b : 0)) / 2;
+// }
+//
+// console.log(f2(6));
+// console.log("================");
+// The "arguments" object is the set of function's parameters
+// Only can be used directly in a function scope
+// We can use the "arguments" to gain a argument of a function in this function scope.
+function f3() {
+    for(let i=0; i<arguments.length; i++){
+        console.log(arguments[i]);
     }
-    return true;
 }
-
-function f2(a, b) {
-    if(checkArg(arguments))
-        return ((a * 1 ? a : 0) + (b * 1 ? b : 0)) / 2;
-}
-
-console.log(f2(6));
+f3(2, 3, 6);
