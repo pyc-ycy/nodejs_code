@@ -123,6 +123,7 @@ console.log("==============");
 // Some useful examples about "arguments" object
 // Sample one:
 console.log("use arguments object to gain the average of num");
+
 function avg() {
     let num = 0, l = 0;
     for (let i = 0; i < arguments.length; i++) {
@@ -139,25 +140,38 @@ console.log(avg(1, 2, 3, 4));
 console.log(avg(1, 2, "3", 4));
 // sample two
 console.log("Verify email address is legal or not");
+
 function isEmail() {
-    if(arguments.length>1){
+    if (arguments.length > 1) {
         console.log("function only need a arguments but incoming more!");
         return null;
     }
     let regExp = /^\w+((-\w)|(\.\w+))*@[A-Za-z0-9]+(([.\-])[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
     return arguments[0].search(regExp) !== -1;
 }
+
 let email = "zhangsan@css8.cn";
 console.log(isEmail(email));
 // sample three:
 console.log("simulate overload");
+
 function sayHello() {
     switch (arguments.length) {
         case 0:
             return "Hello";
         case 1:
-            return "Hello, "+arguments[0];
+            return "Hello, " + arguments[0];
         case 2:
-            return (arguments[1] === "cn" ? "你好, " : "Hello, ")+arguments[0];
+            return (arguments[1] === "cn" ? "你好, " : "Hello, ") + arguments[0];
     }
 }
+
+console.log(sayHello());
+console.log(sayHello("Alex"));
+console.log(sayHello("Alex", "cn"));
+// sample four
+console.log("transform the arguments to array");
+function f2() {
+    return [].slice.apply(arguments);
+}
+console.log(f2(1, 2, 3, 4, 5));
