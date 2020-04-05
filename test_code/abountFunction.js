@@ -149,3 +149,15 @@ function isEmail() {
 }
 let email = "zhangsan@css8.cn";
 console.log(isEmail(email));
+// sample three:
+console.log("simulate overload");
+function sayHello() {
+    switch (arguments.length) {
+        case 0:
+            return "Hello";
+        case 1:
+            return "Hello, "+arguments[0];
+        case 2:
+            return (arguments[1] === "cn" ? "你好, " : "Hello, ")+arguments[0];
+    }
+}
