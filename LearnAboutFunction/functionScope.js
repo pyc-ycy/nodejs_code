@@ -23,3 +23,16 @@ add(5);
 console.log(d[0]);
 add(10);
 console.log(d[0]);
+// Some classical samples of closure
+// sample one
+let f2 = function () {
+    let a = [];
+    return function (x) {
+        a.push(x);
+        return a;
+    }
+}();
+let a1 = f2(1);
+console.log(a1);
+let b1 = f2(2);
+console.log(b1);
