@@ -41,3 +41,15 @@ let compose = function () {
 let composeLeft = function () {
     return compose.apply(null, [].reverse.call(arguments));
 };
+let add = function (x) {
+    return x+5;
+};
+let mul = function (x) {
+    return x*5;
+};
+let sub = function (x) {
+    return x-5;
+};
+let div = function (x) {
+    return x/5;
+};
