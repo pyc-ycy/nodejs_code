@@ -24,20 +24,20 @@ let compose = function () {
     let _arguments = arguments;
     let length = _arguments.length;
     let index = length;
-    while(index--){
-        if(typeof _arguments[index] !== 'function'){
+    while (index--) {
+        if (typeof _arguments[index] !== 'function') {
             throw new TypeError("Type of arguments must be function!");
         }
     }
     return function () {
-        let index = length-1;
-        let result=length?_arguments[index].apply(this, arguments):arguments[0];
-        while(index--){
-            result=_arguments[index].call(this,result);
+        let index = length - 1;
+        let result = length ? _arguments[index].apply(this, arguments) : arguments[0];
+        while (index--) {
+            result = _arguments[index].call(this, result);
         }
         return result;
     }
 };
 let composeLeft = function () {
-    return compose.apply(null,[].reverse.call(arguments));
+    return compose.apply(null, [].reverse.call(arguments));
 };
