@@ -5,6 +5,33 @@
     <title>函数节流</title>
 </head>
 <body>
+<center>
+    <label><input type="text" id="search" name="search"></label>
+    <script>
+        function queryDate(text) {
+            console.log("搜索："+text);
+        }
+        let input = document.getElementById("search");
+        input.addEventListener("keyup", function (event) {
+            throttle(queryDate, 500)(this.value);
+        });
+        let n=0;
+        function f() {
+            console.log("响应次数："+ ++n);
+        }
+        window.onresize = throttle(f, 500);
 
+        function throttle(method, delay) {
+            let timer = null;
+            return function () {
+                let context = this, args = arguments;
+                clearTimeout(timer);
+                timer=setTimeout(function () {
+                    method.apply(context, args);
+                }, delay);
+            }
+        }
+    </script>
+</center>
 </body>
 </html>
