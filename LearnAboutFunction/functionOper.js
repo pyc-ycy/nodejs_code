@@ -67,15 +67,13 @@ function curry(fn) {
 
         function act() {
             _args = _args.concat([].slice.call(arguments));
-            if ((_argLen === 0 && arguments.length === 0)
-                || (_argLen > 0 && _args >= _argLen)) {
+            if ((_argLen === 0 && arguments.length === 0) || (_argLen > 0 && _args.length >= _argLen)) {
                 return fn.apply(null, _args);
             }
             return arguments.callee;
         }
 
-        if ((_argLen === 0 && arguments.length === 0)
-            || (_argLen > 0 && _args >= _argLen)) {
+        if ((_argLen === 0 && arguments.length === 0) || (_argLen > 0 && _args >= _argLen)) {
             return fn.apply(null, _args);
         }
         act.toString = function () {
@@ -94,3 +92,8 @@ let addNum = function () {
 };
 let curried = curry(addNum);
 console.log(curried(1)(2)(3)());
+let addNum2 = function (a, b, c) {
+    return a+b+c;
+};
+let curried1 = curry(addNum2, 2);
+console.log(curried1(2)(2));
