@@ -38,7 +38,8 @@ let compose = function () {
         return result;
     }
 };
-let composeLeft = function () {
+let composeLeft;
+composeLeft = function () {
     return compose.apply(null, [].reverse.call(arguments));
 };
 let add = function (x) {
@@ -102,3 +103,25 @@ console.log(curried2(3));
 let curried3=curry(addNum2);
 console.log(curried3(2)(2)(2));
 console.log(curried3(2,2,2));
+console.log("===============");
+// Callback function
+let x1 = {id:1,date:new Date(2019,3,12)},
+    x2 = {id:2,date:new Date(2020,1,14)},
+    x3 = {id:3,date:new Date(2020,4,7)};
+let arr = [x1, x2, x3];
+arr.sort(function (x, y) {
+    return x.date-y.date;
+});
+for(let i=0;i<arr.length;i++){
+    console.log(arr[i].id + " " + arr[i].date.toLocaleDateString())
+}
+function map(array, func) {
+    let res = [];
+    for(let i in array){
+        res.push(func(array[i]));
+    }
+    return res;
+}
+console.log(map([1,3,5,7,8], function (n) {
+    return n*n;
+}));
