@@ -73,7 +73,7 @@ function curry(fn) {
             return arguments.callee;
         }
 
-        if ((_argLen === 0 && arguments.length === 0) || (_argLen > 0 && _args >= _argLen)) {
+        if ((_argLen === 0 && arguments.length === 0) || (_argLen > 0 && _args.length >= _argLen)) {
             return fn.apply(null, _args);
         }
         act.toString = function () {
@@ -97,3 +97,8 @@ let addNum2 = function (a, b, c) {
 };
 let curried1 = curry(addNum2, 2);
 console.log(curried1(2)(2));
+let curried2 = curry(addNum2,2,1);
+console.log(curried2(3));
+let curried3=curry(addNum2);
+console.log(curried3(2)(2)(2));
+console.log(curried3(2,2,2));
