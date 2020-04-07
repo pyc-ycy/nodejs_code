@@ -42,16 +42,16 @@ let composeLeft = function () {
     return compose.apply(null, [].reverse.call(arguments));
 };
 let add = function (x) {
-    return x+5;
+    return x + 5;
 };
 let mul = function (x) {
-    return x*5;
+    return x * 5;
 };
 let sub = function (x) {
-    return x-5;
+    return x - 5;
 };
 let div = function (x) {
-    return x/5;
+    return x / 5;
 };
 let fn = compose(add, mul, sub, div);
 console.log(fn(50));
@@ -61,18 +61,21 @@ console.log(fn(50));
 function curry(fn) {
     let _argLen = fn.length;
     let _args = [].slice.call(arguments, 1);
+
     function wrap() {
         _args = _args.concat([].slice.call(arguments));
+
         function act() {
             _args = _args.concat([].slice.call(arguments));
-            if((_argLen===0&&arguments.length===0)
-            ||(_argLen>0&&_args>=_argLen)){
+            if ((_argLen === 0 && arguments.length === 0)
+                || (_argLen > 0 && _args >= _argLen)) {
                 return fn.apply(null, _args);
             }
             return arguments.callee;
         }
-        if((_argLen===0&&arguments.length===0)
-            ||(_argLen>0&&_args>=_argLen)){
+
+        if ((_argLen === 0 && arguments.length === 0)
+            || (_argLen > 0 && _args >= _argLen)) {
             return fn.apply(null, _args);
         }
         act.toString = function () {
@@ -80,12 +83,14 @@ function curry(fn) {
         };
         return act;
     }
+
     return wrap;
 }
-let addNum =function () {
-  return [].slice.call(arguments).reduce(function (a,b) {
-        return (typeof a === "number"?a:0)+(typeof b ==="number"?b:0);
-  });
+
+let addNum = function () {
+    return [].slice.call(arguments).reduce(function (a, b) {
+        return (typeof a === "number" ? a : 0) + (typeof b === "number" ? b : 0);
+    });
 };
 let curried = curry(addNum);
 console.log(curried(1)(2)(3)());
