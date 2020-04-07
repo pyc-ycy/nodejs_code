@@ -77,8 +77,15 @@ function curry(fn) {
         }
         act.toString = function () {
             return fn.toString();
-        }
+        };
         return act;
     }
     return wrap;
 }
+let addNum =function () {
+  return [].slice.call(arguments).reduce(function (a,b) {
+        return (typeof a === "number"?a:0)+(typeof b ==="number"?b:0);
+  });
+};
+let curried = curry(addNum);
+console.log(curried(1)(2)(3)());
