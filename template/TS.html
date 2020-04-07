@@ -5,6 +5,25 @@
     <title>分时函数</title>
 </head>
 <body>
+<script>
+    let timeChunk = function (ary, fn, count) {
+        let t;
+        let start = function () {
+            for(let i=0; i<Math.min(count || 1, ary.length);i++){
+                let obj=ary.shift();
+                fn(obj);
+            }
+        };
+        return function () {
+            t = setInterval(function () {
+                if(ary.length === 0){
+                    return clearInterval(t);
+                }
+                start();
+            }, 200);
+        };
+    };
 
+</script>
 </body>
 </html>
