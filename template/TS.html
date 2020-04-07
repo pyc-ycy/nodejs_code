@@ -24,11 +24,16 @@
         };
     };
 let arr =[];
-for(let i=1; i<=1000; i++){
+for(let i=1; i<=10000; i++){
     let span = document.createElement("span");
     span.style.padding="6px 12px";
+    span.style.color="green";
     span.innerHTML = i;
     arr.push(span);
+    if(i%100===0){
+        let br = document.createElement("br");
+        arr.push(br);
+    }
 }
 let fn = function (obj) {
     document.body.appendChild(obj);
