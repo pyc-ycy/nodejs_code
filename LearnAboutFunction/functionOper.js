@@ -125,3 +125,6 @@ function map(array, func) {
 console.log(map([1,3,5,7,8], function (n) {
     return n*n;
 }));
+console.log(map(["one","two","three","four"], function (item) {
+    return item[0].toUpperCase() + item.slice(1).toLowerCase();
+}));
