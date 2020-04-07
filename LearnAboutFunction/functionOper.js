@@ -128,3 +128,19 @@ console.log(map([1,3,5,7,8], function (n) {
 console.log(map(["one","two","three","four"], function (item) {
     return item[0].toUpperCase() + item.slice(1).toLowerCase();
 }));
+console.log("===================");
+// Singleton pattern
+// One class one example
+let getSingle = function (fn) {
+    let ret;
+    return function () {
+        return ret || (ret = fn.apply(this, arguments));
+    };
+};
+function XHR() {
+    return new Date(2019,2,15);
+}
+let xhr = getSingle(XHR);
+let x4 = xhr();
+let x5 = xhr();
+console.log(x4===x5);

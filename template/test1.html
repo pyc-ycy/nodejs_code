@@ -5,23 +5,9 @@
     <title>Test one</title>
 </head>
 <body>
+<button>只能单击一次</button>
 <script>
-    function f() {
-        let a = 1;
-        b = function () {
-            console.log("a = " + a);
-        };
-        c = function () {
-            a++;
-        };
-        d = function () {
-            a--;
-        };
-    }
+
 </script>
-<button onclick="f()">生成闭包</button>
-<button onclick="b()">查看 a 的值</button>
-<button onclick="c()">递增</button>
-<button onclick="d()">递减</button>
 </body>
 </html>
