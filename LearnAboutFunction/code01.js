@@ -27,3 +27,6 @@ func();
 // Function throttling
 // It is mean that reducing function usage frequency, and mainly used for DOM events.
 // Example in throttling.html
+// Time-sharing function
+// Perform a step-by-step function in time to extend the overall time, thus avoiding browser freezes or false deaths
+// Sample in TS.html
