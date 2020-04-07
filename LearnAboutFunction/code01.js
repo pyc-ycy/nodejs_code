@@ -24,3 +24,5 @@ func = func.before(function () {
     console.log(3);
 });
 func();
+// Function throttling
+// It is mean that reducing function usage frequency, and mainly used for DOM events.
