@@ -7,7 +7,16 @@
 <body>
 <button>只能单击一次</button>
 <script>
-
+function getSingle(fn) {
+    let ret;
+    return function () {
+        return ret || (ret = fn.apply(this, arguments));
+    };
+}
+let f = function () {
+    console.log(this.nodeName);
+};
+document.getElementsByTagName("button")[0].onclick = getSingle(f);
 </script>
 </body>
 </html>
