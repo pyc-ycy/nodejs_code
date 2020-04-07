@@ -53,3 +53,32 @@ let sub = function (x) {
 let div = function (x) {
     return x/5;
 };
+let fn = compose(add, mul, sub, div);
+console.log(fn(50));
+// Function currying
+// The so-called currying is to convert a multi-parameter function into a single parameter function
+// Sample:
+function curry(fn) {
+    let _argLen = fn.length;
+    let _args = [].slice.call(arguments, 1);
+    function wrap() {
+        _args = _args.concat([].slice.call(arguments));
+        function act() {
+            _args = _args.concat([].slice.call(arguments));
+            if((_argLen===0&&arguments.length===0)
+            ||(_argLen>0&&_args>=_argLen)){
+                return fn.apply(null, _args);
+            }
+            return arguments.callee;
+        }
+        if((_argLen===0&&arguments.length===0)
+            ||(_argLen>0&&_args>=_argLen)){
+            return fn.apply(null, _args);
+        }
+        act.toString = function () {
+            return fn.toString();
+        }
+        return act;
+    }
+    return wrap;
+}
