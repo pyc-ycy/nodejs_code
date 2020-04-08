@@ -39,12 +39,13 @@ console.log("=========================");
 // Fix some parameters of a function by setting default values ​​and return a new function
 // and then receive the remaining parameters in the new function
 // example:
-let isString = function (obj) {
-  return Object.prototype.toString.call(obj)==='[object string]';
+let isType=function(type){
+    return function(obj){
+        return Object.prototype.toString.call(obj)==='[object ' + type+ ']';
+    }
 };
-let isFunction = function (obj) {
-    return Object.prototype.toString.call(obj) === '[object function]';
-};
-let isType=function(type, obj){
-    return Object.prototype.toString.call(obj)==='[object ' + type+ ']';
-};
+let isString = isType("String");
+let isFunction = isType("Function");
+console.log( isString("12"));
+console.log( isFunction(function(){}));
+console.log( isFunction( {} ));
