@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+</head>
+<body>
+<script>
+    let price, count, money;
+    let total, change;
+    price = prompt("请输入商品单价：");
+    count = prompt("请输入商品数量：");
+    total = price * count;
+    if(total>=500){
+        alert("您的消费金额大于等于500元，可以享受8折优惠");
+        total = total*0.8;
+    }
+    alert("您此次消费金额："+total+"元");
+    money = prompt("收款：");
+    if(money >= total){
+        change = money - total;
+        alert("共找您"+change+"元");
+    }else{
+        alert("您给的钱不够多，请多给点");
+    }
+</script>
+</body>
+</html>
