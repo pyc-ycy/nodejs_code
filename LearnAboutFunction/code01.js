@@ -42,3 +42,9 @@ console.log("=========================");
 let isString = function (obj) {
   return Object.prototype.toString.call(obj)==='[object string]';
 };
+let isFunction = function (obj) {
+    return Object.prototype.toString.call(obj) === '[object function]';
+};
+let isType=function(type, obj){
+    return Object.prototype.toString.call(obj)==='[object ' + type+ ']';
+};
