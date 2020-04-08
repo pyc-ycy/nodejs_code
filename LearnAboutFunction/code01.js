@@ -24,6 +24,7 @@ func = func.before(function () {
     console.log(3);
 });
 func();
+console.log("=========================");
 // Function throttling
 // It is mean that reducing function usage frequency, and mainly used for DOM events.
 // Example in throttling.html
@@ -34,3 +35,10 @@ func();
 // it will execute with condition is right When the function is called for the first time,
 // it will execute directly without check condition when the function is called for the second time
 // Example in lazyLoading.html
+// Partial function
+// Fix some parameters of a function by setting default values ​​and return a new function
+// and then receive the remaining parameters in the new function
+// example:
+let isString = function (obj) {
+  return Object.prototype.toString.call(obj)==='[object string]';
+};
