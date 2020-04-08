@@ -30,3 +30,7 @@ func();
 // Time-sharing function
 // Perform a step-by-step function in time to extend the overall time, thus avoiding browser freezes or false deaths
 // Sample in TS.html
+// Lazy loading function
+// it will execute with condition is right When the function is called for the first time,
+// it will execute directly without check condition when the function is called for the second time
+// Example in lazyLoading.html
