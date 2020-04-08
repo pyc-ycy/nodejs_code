@@ -5,6 +5,22 @@
     <title>惰性载入函数</title>
 </head>
 <body>
+<script>
+    let addEvent = function (element, type, handle) {
+        addEvent = element.addEventListener ? function (element, type, handle) {
+            element.addEventListener(type, handle, false);
+        } : function (element, type, handle) {
+            element.attachEvent("on" + type, handle);
+        };
+        addEvent(element, type, handle);
+    };
+    addEvent(document, "mousemove", function () {
+        console.log("移动鼠标："+((this.n)?(++this.n):(this.n=1)));
+    });
+    addEvent(window, "resize", function () {
+        console.log("改变窗口大小：" + (( this.n)?(++this.n ):(this.n = 1)));
+    });
 
+</script>
 </body>
 </html>
