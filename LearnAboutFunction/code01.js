@@ -49,3 +49,6 @@ let isFunction = isType("Function");
 console.log( isString("12"));
 console.log( isFunction(function(){}));
 console.log( isFunction( {} ));
+console.log("===============");
+// Uncurry function
+// Extract the process of generalizing this pointer，Abstract fn.call or fn.apply into a generic function
