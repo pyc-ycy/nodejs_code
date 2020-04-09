@@ -5,6 +5,15 @@
     <title>偏函数</title>
 </head>
 <body>
+<script>
+    function wrap(tag) {
+        let stag = '<'+tag+'>';
+        let etag = '</'+tag.replace(/s.*/,'')+'>';
+        return function (x) {
+            return stag + x + etag + "<br>";
+        }
+    }
 
+</script>
 </body>
 </html>
