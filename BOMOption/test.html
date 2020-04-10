@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用系统对话框</title>
+</head>
+<body>
+<script>
+    let user = prompt("Input your username");
+    if(! ! user){
+        let ok = confirm("Username you had inputted is:\n" + user + "\nAre you sure?")
+        if(ok){
+            alert("Welcome " + user);
+        }else{
+            user = prompt("Please input your username again:");
+            alert("Welcome " + user);
+        }
+    }
+</script>
+</body>
+</html>
