@@ -57,7 +57,7 @@ Function.prototype.uncurry = function () {
     let self = this;
     return function () {
         return Function.prototype.apply.apply(self, arguments);
-    }
+    };
 }
 let push = Array.prototype.push.uncurry();
 let obj = {};
