@@ -59,3 +59,8 @@ Function.prototype.uncurry = function () {
         return Function.prototype.apply.apply(self, arguments);
     }
 }
+let push = Array.prototype.push.uncurry();
+let obj = {};
+push(obj, [3, 4, 5]);
+for(let i in obj)
+    console.log(i);
