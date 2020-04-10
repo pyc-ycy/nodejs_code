@@ -38,6 +38,24 @@
     </style>
 </head>
 <body>
+<script>
+    window.alert = function (title, info) {
+        let box = document.getElementById("alert_box");
+        let html = '<dl><dt>' + title +'</dt><dd>' + info + '</dd><\/dl>';
+        if(box){
+            box.innerHTML = html;
+            box.style.display = "block";
+        }
+        else{
+            let div = document.createElement("div");
+            div.id = "alert_box";
+            div.style.display = "block";
+            document.body.appendChild(div);
+            div.innerHTML = html;
+        }
+    }
 
+    alert('重写 Alert 方法', "这仅仅是一个设计思路，还可以进一步设计");
+</script>
 </body>
 </html>
