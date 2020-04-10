@@ -52,3 +52,10 @@ console.log( isFunction( {} ));
 console.log("===============");
 // Uncurry function
 // Extract the process of generalizing this pointer，Abstract fn.call or fn.apply into a generic function
+// example
+Function.prototype.uncurry = function () {
+    let self = this;
+    return function () {
+        return Function.prototype.apply.apply(self, arguments);
+    }
+}
